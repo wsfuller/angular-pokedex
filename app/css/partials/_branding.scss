@@ -1,0 +1,90 @@
+//
+// BRANDING
+//__________________________________________________
+
+$primary-color:             #89ca1c;
+$primary-color-lt:          lighten($primary-color, 48); //#f2fbe3
+$primary-color-dk:          darken($primary-color, 14);  //#5f7f1c
+
+
+
+$error-color:               #e63027;
+$warning-color:             #8a6d3b;
+$attention-color:           #31708f;
+$success-color:             #3c763d;
+$bonus-color:               #d05a10;
+
+
+//
+// LAYOUT COLORS
+//_________________________
+$bg-color-lt:       #fff;
+$body-bg-color:     #f5f5f5;
+$dropdown-bg-color: $bg-color-lt;
+
+$shadow-color:      #000;
+$border-color:      #d0d0d0;
+
+
+
+
+//
+// TYPOGRAPHY
+//_________________________
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,500,700);
+
+$primary-font-family: 'Roboto', sans-serif;
+
+$base-font-color:       #d4d4d4;
+$font-color-lt:         lighten($base-font-color, 100);
+$font-color-dk:         darken($base-font-color, 100);
+$font-color-error:      $error-color;
+$link-hover-color:      darken($primary-color, 10); //#6aa900
+$font-hightlight-color: $link-hover-color;
+
+
+
+$base-font-size:    14px;
+$font-size-default: 100%;   //14px
+$font-size-h1:      228.6%; //32px
+$font-size-h2:      171.4%; //24px
+$font-size-h3:      128.6%; //18px
+$font-size-h4:      114.3%; //16px
+$font-size-h5:      100%;   //14px
+$font-size-h6:      85.7%;  //12px
+
+
+$font-size-tb-header:     542.9%; //76px
+$font-size-tb-sub-header: 285.7%; //40px
+$font-size-tb-btn-header: 214.3%; //30px
+$font-size-tb-btn:        157.1%; //22px
+
+$font-size-social-btn-icon: 171.4%; //24px
+$mobile-hdr-icon-size: 150%;
+
+h1{
+  font-size: $font-size-h1;
+}
+h2{
+  font-size: $font-size-h2;
+}
+h3{
+  font-size: $font-size-h3;
+}
+h4{
+  font-size: $font-size-h4;
+}
+h5{
+  font-size: $font-size-h5;
+}
+h6{
+  font-size: $font-size-h6;
+}
+
+h1,h2,h3,h4,h5,h6{
+  //font-family: $secondary-font-family;
+  font-weight: 400;
+}
+
+$letter-spacing-sm: 0.02em; //20 tracking
+$letter-spacing-default: 0.025em; //25 tracking
