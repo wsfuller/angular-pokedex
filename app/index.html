@@ -18,21 +18,57 @@
 
 <md-toolbar class="md-toolbar-tools md-default-theme">
   <h3>AngularJS Pokedex</h3>
-  <input placeholder="search" type="text" ng-model="user.search">
+  <form ng-submit="search()">
+    <input placeholder="placeholder text" type="text" ng-model="searchPokemon" />
+  </form>
+
 
 
 </md-toolbar>
 
 
 <section class="module">
-  <div ng-repeat="pokemon in pokemons">
-    {{pokemon.name}}
+  <div ng-repeat="pokemon in characters">
+    <md-grid-list md-cols-sm="1">
+      <md-content class="md-padding">
+        <md-card>
+          <img class="image-responsive" ng-src="http://pokeapi.co/media/img/{{pokemon.pkdx_id}}.png"/>
+          <md-card-content>
+            <h2 class="md-title">
+              {{pokemon.name}}
+            </h2>
+            <div>Attack: {{pokemon.attack}}</div>
+            <div>Defense: {{pokemon.defense}}</div>
+            <div>Experience: {{pokemon.exp}}</div>
+            <div>Height: {{pokemon.height}}</div>
+            <div>Hit Points: {{pokemon.hp}}</div>
+            <div>
+              Abilities:
+              <ul>
+                <li ng-repeat="ability in pokemon.abilities">
+                  {{ability.name}}
+                </li>
+              </ul>
+            </div>
+            <span>
+              Type:
+              <ul>
+                <li ng-repeat="type in pokemon.types">
+                  {{type.name}}
+                </li>
+              </ul>
+            </span>
 
-    <img ng-src="http://pokeapi.co/media/img/{{pokemon.pkdx_id}}.png"/>
-    <span>Attack: {{pokemon.data.defense}}</span>
-    <span>Defense: {{pokemon.defense}}</span>
-    <span>Experience: {{pokemon.exp}}</span>
-    <span>Height: {{pokemon.height}}</span>
+
+
+          </md-card-content>
+        </md-card>
+      </md-content>
+    </md-grid-list>
+
+
+
+
 
   </div>
 </section>

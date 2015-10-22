@@ -1,5 +1,9 @@
 body,html{
   font-family: $primary-font-family;
   background-color: $body-bg-color;
+}
 
+.image-responsive{
+  max-width: 100%;
+  height: auto;
 }

@@ -69,4 +69,11 @@ body, html {
   font-family: "Roboto", sans-serif;
   background-color: #f5f5f5; }
 
+.image-responsive {
+  max-width: 100%;
+  height: auto; }
+
+md-card {
+  max-width: 150px; }
+
 /*# sourceMappingURL=style.css.map */
