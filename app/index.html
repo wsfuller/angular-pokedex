@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en" ng-app="pokedex">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -12,14 +12,30 @@
   <link rel="stylesheet" type="text/css" href="css/vendor-styles.css" media="all" />
   <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
 </head>
-<body>
+<body ng-controller="pokedexCtrl">
 
-<md-toolbar class="md-default-theme">
-  <div class="md-toolbar-tools">
-    <span class="md-flex">Grunt Thing</span>
-  </div>
+
+
+<md-toolbar class="md-toolbar-tools md-default-theme">
+  <h3>AngularJS Pokedex</h3>
+  <input placeholder="search" type="text" ng-model="user.search">
+
+
 </md-toolbar>
 
+
+<section class="module">
+  <div ng-repeat="pokemon in pokemons">
+    {{pokemon.name}}
+
+    <img ng-src="http://pokeapi.co/media/img/{{pokemon.pkdx_id}}.png"/>
+    <span>Attack: {{pokemon.data.defense}}</span>
+    <span>Defense: {{pokemon.defense}}</span>
+    <span>Experience: {{pokemon.exp}}</span>
+    <span>Height: {{pokemon.height}}</span>
+
+  </div>
+</section>
 
 
 <script src="js/app.js"></script>

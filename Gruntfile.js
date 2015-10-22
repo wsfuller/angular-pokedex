@@ -14,7 +14,7 @@ module.exports = function(grunt) {
           'app/*.html',
           'app/css/**/*.scss',
           'app/js/**/*.js',
-          '!app/js/app.js'
+          'app/js/app.js'
         ],
         tasks: [
           'clean',
@@ -83,6 +83,7 @@ module.exports = function(grunt) {
           'vendor/angular-material/angular-material.js',
           'vendor/angular-animate/angular-animate.js',
           'vendor/angular-aria/angular-aria.js',
+          'vendor/angular-resource/angular-resource.js',
           'app/js/**/*.js'
         ],
         dest: 'build/js/app.js',
