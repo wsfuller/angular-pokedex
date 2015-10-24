@@ -21,59 +21,76 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+}
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block; }
+  display: block;
+}
 
 body {
-  line-height: 1; }
+  line-height: 1;
+}
 
 ol, ul {
-  list-style: none; }
+  list-style: none;
+}
 
 blockquote, q {
-  quotes: none; }
-  blockquote:before, blockquote:after, q:before, q:after {
-    content: '';
-    content: none; }
+  quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 h1 {
-  font-size: 228.6%; }
+  font-size: 228.6%;
+}
 
 h2 {
-  font-size: 171.4%; }
+  font-size: 171.4%;
+}
 
 h3 {
-  font-size: 128.6%; }
+  font-size: 128.6%;
+}
 
 h4 {
-  font-size: 114.3%; }
+  font-size: 114.3%;
+}
 
 h5 {
-  font-size: 100%; }
+  font-size: 100%;
+}
 
 h6 {
-  font-size: 85.7%; }
+  font-size: 85.7%;
+}
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 400; }
+  font-weight: 400;
+}
 
 body, html {
   font-family: "Roboto", sans-serif;
-  background-color: #f5f5f5; }
+  background-color: #f5f5f5;
+}
 
 .image-responsive {
   max-width: 100%;
-  height: auto; }
+  height: auto;
+}
 
 md-card {
-  max-width: 150px; }
+  max-width: 150px;
+}
 
 /*# sourceMappingURL=style.css.map */
