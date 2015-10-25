@@ -3,3 +3,4 @@
 /.idea
 /vendor
 /.sass-cache
+**/*.css.map
