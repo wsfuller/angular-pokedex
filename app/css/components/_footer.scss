@@ -4,12 +4,9 @@ footer{
   width: 100%;
   height: $page-wrap-value;
   float: left;
-  display: table;
   margin-top: 20px;
   background-color: $primary-color-dk;
   .powered-by{
-    display: table-cell;
-    vertical-align: middle;
     p{
       margin: 10px auto;
       color: $font-color-lt;

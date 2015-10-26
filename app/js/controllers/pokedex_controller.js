@@ -4,20 +4,21 @@
 app.controller('pokedexCtrl', function($scope, $http, $timeout){
 
   // making search input lowercase, create better search results
-  $scope.searchCharacter = '';
-  $scope.$watch('searchCharacter', function() {
-    $scope.searchCharacter = $scope.searchCharacter.toLowerCase().replace(/\s+/g,'');
-  });
+  //$scope.searchCharacter = '';
+  //$scope.$filter('searchCharacter', function() {
+  //
+  //});
 
   $scope.search = function(){
     // get pokemon details
+    var searchCharacter = $scope.searchCharacter.toLowerCase().replace(/\s+/g,'');
     $http({
       method: 'GET',
-      url: 'http://pokeapi.co/api/v1/pokemon/' + $scope.searchCharacter
-    }).then(function successCallback(data) {
-      $scope.characters = [data.data];
+      url: 'http://pokeapi.co/api/v1/pokemon/' + searchCharacter
+    }).then(function successCallback(response) {
+      $scope.characters = [response.data];
       console.log($scope.characters);
-    }, function errorCallback(data) {
+    }, function errorCallback(response) {
       alert('we are sorry but we could not find what you are looking for');
     });
   };
@@ -33,10 +34,10 @@ app.controller('pokedexCtrl', function($scope, $http, $timeout){
     $http({
       method: 'GET',
       url: 'http://pokeapi.co/api/v1/pokemon/' + singleRandom()
-    }).then(function successCallback(data) {
-      $scope.characters = [data.data];
+    }).then(function successCallback(response) {
+      $scope.characters = [response.data];
       console.log($scope.characters);
-    }, function errorCallback(data) {
+    }, function errorCallback(response) {
       alert('we are sorry but we could not find what you are looking for');
     });
 

@@ -22,6 +22,12 @@
       @include flex;
       @include flex-justify(space-between);
     }
+    &.row-center{
+      @include flex-justify(center);
+    }
+    &.row-middle{
+      @include flex-align(center);
+    }
   }
 }
 

@@ -16,3 +16,10 @@
 @mixin flex-justify($justify){
   justify-content: $justify;
 }
+
+@mixin flex-align($align){
+  -ms-flex-align: $align;
+  -webkit-align-items: $align;
+  -webkit-box-align: $align;
+  align-items: $align;
+}

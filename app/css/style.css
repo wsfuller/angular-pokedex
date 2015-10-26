@@ -101,6 +101,13 @@ h1, h2, h3, h4, h5, h6 {
       display: -webkit-flex;
       display: flex;
       justify-content: space-between; }
+    .container .row.row-center {
+      justify-content: center; }
+    .container .row.row-middle {
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      align-items: center; }
 
 .pull-left {
   float: left; }
@@ -176,23 +183,19 @@ footer {
   width: 100%;
   height: 142px;
   float: left;
-  display: table;
   margin-top: 20px;
   background-color: #435761; }
-  footer .powered-by {
-    display: table-cell;
-    vertical-align: middle; }
-    footer .powered-by p {
-      margin: 10px auto;
-      color: white;
-      text-align: center; }
-    footer .powered-by a.api-logo {
-      width: 60px;
-      height: 60px;
-      display: block;
-      margin: auto;
-      color: white;
-      text-align: center;
-      text-decoration: none; }
+  footer .powered-by p {
+    margin: 10px auto;
+    color: white;
+    text-align: center; }
+  footer .powered-by a.api-logo {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: auto;
+    color: white;
+    text-align: center;
+    text-decoration: none; }
 
 /*# sourceMappingURL=style.css.map */
