@@ -9,7 +9,6 @@ app.controller('pokedexCtrl', function($scope, $http, $timeout){
     $scope.searchCharacter = $scope.searchCharacter.toLowerCase().replace(/\s+/g,'');
   });
 
-
   $scope.search = function(){
     // get pokemon details
     $http({
@@ -18,13 +17,31 @@ app.controller('pokedexCtrl', function($scope, $http, $timeout){
     }).then(function successCallback(data) {
       $scope.characters = [data.data];
       console.log($scope.characters);
-
-
-
     }, function errorCallback(data) {
       alert('we are sorry but we could not find what you are looking for');
     });
-  }
+  };
+
+  $scope.randomCharacter = function(){
+    //console.log('random character');
+
+    function singleRandom() {
+      return Math.floor((Math.random() * 718) + 1);
+    }
+    console.log(singleRandom());
+
+    $http({
+      method: 'GET',
+      url: 'http://pokeapi.co/api/v1/pokemon/' + singleRandom()
+    }).then(function successCallback(data) {
+      $scope.characters = [data.data];
+      console.log($scope.characters);
+    }, function errorCallback(data) {
+      alert('we are sorry but we could not find what you are looking for');
+    });
+
+
+  };
 
 
 

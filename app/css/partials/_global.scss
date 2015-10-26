@@ -1,6 +1,24 @@
+$page-wrap-value: 142px;
+
+*{
+  margin: 0;
+}
+
 body,html{
+  height: 100%;
   font-family: $primary-font-family;
   background-color: $body-bg-color;
+}
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -$page-wrap-value;
+  &:after{
+    content: "";
+    display: block;
+    height: $page-wrap-value;
+  }
 }
 
 .image-responsive{

@@ -1,0 +1,48 @@
+$header-height: 65px;
+
+header{
+  width: 100%;
+  height: $header-height;
+  float: left;
+  margin-bottom: 20px;
+  background-color: $primary-color;
+  .logo{
+    margin-right: 15px;
+    display: flex;
+    line-height: $header-height;
+    color: $font-color-lt;
+    font-weight: 100;
+  }
+  .form{
+    display: flex;
+  }
+  md-input-container.header-search {
+    padding: 0;
+  }
+  md-input-container label:not(.md-no-float), md-input-container .md-placeholder{
+    color: $font-color-lt;
+  }
+  md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused, md-input-container:not(.md-input-invalid).md-input-focused label{
+    color: $font-color-lt;
+  }
+  md-input-container.md-default-theme, md-input-container .md-input{
+    color: $font-color-lt;
+    border-color: $font-color-lt;
+  }
+  md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused, md-input-container:not(.md-input-invalid).md-input-focused .md-input{
+    color: $font-color-lt;
+    border-color: $font-color-lt;
+  }
+
+
+
+
+
+
+
+
+  md-input-container.md-default-theme label,
+  md-input-container.md-default-theme .md-placeholder{
+    color: #fff !important;
+  }
+}

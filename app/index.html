@@ -15,57 +15,57 @@
 <body ng-controller="pokedexCtrl">
 
 
-
-  <md-toolbar class="md-toolbar-tools md-default-theme">
+<div class="page-wrap">
+  <header>
     <div class="container">
-      <!-- LOGO -->
-      <h3>AngularJS Pokedex</h3>
-      <!-- // logo -->
-      <!-- SEARCH INPUT -->
-      <form ng-submit="search()">
-        <input placeholder="placeholder text" type="text" ng-model="searchCharacter" />
-
-      </form>
-      <!-- // search -->
-
-      <!-- RANDOM GENERATOR BUTTON -->
-      <!-- // generator -->
-
-      <!-- HELP DROPDOWN -->
-
-      <!-- // help -->
-
-      <!-- POWERED BY -->
-      <a href="http://pokeapi.co/"><span>Powered By:</span><img src="img/pokeapi-logo.png"/></a>
-      <!-- // powered by -->
+      <div class="row row-justify">
+        <!-- LOGO -->
+        <h3 class="logo">AngularJS Pokedex</h3>
+        <!-- // logo -->
+        <!-- SEARCH INPUT -->
+        <form ng-submit="search()">
+          <md-input-container class="header-search">
+            <label>Search</label>
+            <input type="text" ng-model="searchCharacter">
+          </md-input-container>
+        </form>
+        <!-- // search -->
+        <!-- RANDOM GENERATOR BUTTON -->
+        <md-button class="md-raised md-primary md-button md-ink-ripple md-hue-2" ng-click="randomCharacter()">
+          Randomize
+        </md-button>
+        <!-- // generator -->
+      </div>
     </div>
-  </md-toolbar>
+  </header>
 
-<div class="container">
-  <section class="module">
-    {{name}}
-    <div ng-repeat="pokemon in characters">
-      <md-grid-list md-cols-sm="1">
-        <md-content class="md-padding">
-          <md-card>
-            <img class="image-responsive" ng-src="http://pokeapi.co/media/img/{{pokemon.pkdx_id}}.png"/>
-            <md-card-content>
-              <h2 class="md-title">
-                {{pokemon.name}}
-              </h2>
-              <div>Attack: {{pokemon.attack}}</div>
-              <div>Defense: {{pokemon.defense}}</div>
-              <div>Experience: {{pokemon.exp}}</div>
-              <div>Height: {{pokemon.height}}</div>
-              <div>Hit Points: {{pokemon.hp}}</div>
-              <div>
-                Abilities:
-                <ul>
-                  <li ng-repeat="ability in pokemon.abilities">
-                    {{ability.name}}
-                  </li>
-                </ul>
-              </div>
+
+  <div class="container">
+    <section class="module">
+      {{name}}
+      <div ng-repeat="pokemon in characters">
+        <md-grid-list md-cols-sm="1">
+          <md-content class="md-padding">
+            <md-card>
+              <img class="image-responsive" ng-src="http://pokeapi.co/media/img/{{pokemon.pkdx_id}}.png"/>
+              <md-card-content>
+                <h2 class="md-title">
+                  {{pokemon.name}} <span>#{{pokemon.pkdx_id}}</span>
+                </h2>
+                <div>Attack: {{pokemon.attack}}</div>
+                <div>Defense: {{pokemon.defense}}</div>
+                <div>Experience: {{pokemon.exp}}</div>
+                <div>Height: {{pokemon.height}}</div>
+                <div>Hit Points: {{pokemon.hp}}</div>
+                <div>
+                  Abilities:
+                  <ul>
+                    <li ng-repeat="ability in pokemon.abilities">
+                      {{ability.name}}
+                    </li>
+                  </ul>
+                </div>
+                <h1></h1>
             <span>
               Type:
               <ul>
@@ -74,25 +74,25 @@
                 </li>
               </ul>
             </span>
-
-
-
-            </md-card-content>
-          </md-card>
-        </md-content>
-      </md-grid-list>
-
-
-
-
-
-    </div>
-  </section>
-
-
-
-
+              </md-card-content>
+            </md-card>
+          </md-content>
+        </md-grid-list>
+      </div>
+    </section>
+  </div>
 </div>
+
+<footer>
+  <!-- POWERED BY -->
+  <div class="powered-by">
+    <p>Powered By:</p>
+    <a class="api-logo" href="http://pokeapi.co/" target="_blank">
+      <img src="img/pokeapi-logo.png"/>
+    </a>
+  </div>
+  <!-- // powered by -->
+</footer>
 
 
 
