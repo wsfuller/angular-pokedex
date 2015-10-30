@@ -17,19 +17,20 @@ app.controller('pokedexCtrl', function($scope, searchCharacter){
       }
     )];
 
-    var pokemonObject = searchCharacter.get({value: filteredSearch}, function(value, responseHeader) {
-      console.log('Pokemon Object: ', pokemonObject);
+    pokemonObject = searchCharacter.get({value: filteredSearch}, function(value, responseHeader) {
+      console.log('Search Input Pokemon Object: ', pokemonObject);
+      pokemonIDfilter(pokemonObject);
     });
 
+    $scope.searchCharacter = [];
   };
 
+  // Generates random number between 1 - 718 which serves as the ID for a Pokemon Character
   $scope.randomCharacter = function(){
 
-    function singleRandom() {
-      return Math.floor((Math.random() * 718) + 1);
-    }
+    var randomID = Math.floor((Math.random()* 718) + 1);
 
-    $scope.characters = [searchCharacter.get({value : singleRandom()}, function(){},
+    $scope.characters = [searchCharacter.get({value : randomID}, function(){},
       function(response){
         if(response.status === 404){
           alert('Oh no something has broken with our randomizer')
@@ -37,11 +38,25 @@ app.controller('pokedexCtrl', function($scope, searchCharacter){
       }
     )];
 
-    var pokemonObject = searchCharacter.get({value: singleRandom()}, function(value, responseHeader) {
-      console.log('Pokemon Object: ', pokemonObject);
+    pokemonObject = searchCharacter.get({value: randomID}, function(value, responseHeader) {
+      console.log('Random Pokemon Object: ', pokemonObject);
+      pokemonIDfilter(pokemonObject);
     });
-
-
   };
 
+  function pokemonIDfilter() {
+    var pokemonID = pokemonObject.pkdx_id;
+    if(pokemonID <= 9){
+      $scope.pokemonID = '00' + pokemonID;
+      console.log('less than 9 ' , pokemonID);
+    }
+    else if (pokemonID >= 10 && pokemonID < 100){
+      $scope.pokemonID = '0' + pokemonID;
+      console.log('greater than 10' , pokemonID);
+    }
+    else{
+      $scope.pokemonID = pokemonID;
+      console.log('pokemonID equals: ', pokemonID)
+    }
+  };
 });
