@@ -20,7 +20,7 @@
     <div class="container">
       <div class="row row-justify">
         <!-- LOGO -->
-        <h3 class="logo">AngularJS Pokedex</h3>
+        <!--<h3 class="logo">AngularJS Pokedex</h3>-->
         <!-- // logo -->
         <!-- SEARCH INPUT -->
         <form ng-submit="search()">
@@ -42,12 +42,12 @@
 
   <div class="container">
     <section class="module">
-      {{name}}
       <div ng-repeat="pokemon in characters">
         <md-grid-list md-cols-sm="1">
           <md-content class="md-padding">
             <md-card>
               <img class="image-responsive" ng-src="http://pokeapi.co/media/img/{{pokemon.pkdx_id}}.png"/>
+              <!--<img class="image-responsive" ng-src="http://assets20.pokemon.com/assets/cms2/img/pokedex/detail/{{pokemon.pkdx_id}}.png"/>-->
               <md-card-content>
                 <h2 class="md-title">
                   {{pokemon.name}} <span>#{{pokemon.pkdx_id}}</span>
@@ -66,14 +66,14 @@
                   </ul>
                 </div>
                 <h1></h1>
-            <span>
-              Type:
-              <ul>
-                <li ng-repeat="type in pokemon.types">
-                  {{type.name}}
-                </li>
-              </ul>
-            </span>
+                <span>
+                  Type:
+                  <ul>
+                    <li ng-repeat="type in pokemon.types">
+                      {{type.name}}
+                    </li>
+                  </ul>
+                </span>
               </md-card-content>
             </md-card>
           </md-content>
@@ -83,22 +83,20 @@
   </div>
 </div>
 
-<footer>
-  <div class="container">
-    <div class="row row-center row-middle">
-      <!-- POWERED BY -->
-      <div class="powered-by">
-        <p>Powered By:</p>
-        <a class="api-logo" href="http://pokeapi.co/" target="_blank">
-          <img src="img/pokeapi-logo.png"/>
-        </a>
-      </div>
-      <!-- // powered by -->
-    </div>
-
-  </div>
-
-</footer>
+<!--<footer>-->
+  <!--<div class="container">-->
+    <!--<div class="row row-center row-middle">-->
+      <!--&lt;!&ndash; POWERED BY &ndash;&gt;-->
+      <!--<div class="powered-by">-->
+        <!--<p>Powered By:</p>-->
+        <!--<a class="api-logo" href="http://pokeapi.co/" target="_blank">-->
+          <!--<img src="img/pokeapi-logo.png"/>-->
+        <!--</a>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; // powered by &ndash;&gt;-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</footer>-->
 
 
 
