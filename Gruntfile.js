@@ -84,6 +84,7 @@ module.exports = function(grunt) {
           'vendor/angular-animate/angular-animate.js',
           'vendor/angular-aria/angular-aria.js',
           'vendor/angular-resource/angular-resource.js',
+          'vendor/isteven-angular-omni-bar/isteven-omni-bar.js',
           'app/js/**/*.js'
         ],
         dest: 'build/js/app.js',

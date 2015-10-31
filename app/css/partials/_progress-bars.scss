@@ -1,0 +1,9 @@
+.containerBar{
+  height: 5px;
+  .currentValue{
+    @include border-radius(0);
+  }
+  .maxValue{
+    @include border-radius(0);
+  }
+}

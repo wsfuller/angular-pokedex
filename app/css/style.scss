@@ -10,6 +10,7 @@
 //_________________________
 @import "mixins/flex";
 @import "mixins/box-shadow";
+@import "mixins/border-radius";
 
 
 //
@@ -20,7 +21,9 @@
 @import "partials/breakpoints";
 @import "partials/grid";
 @import "partials/global";
+@import "partials/modules";
 @import "partials/cards";
+@import "partials/progress-bars";
 
 
 

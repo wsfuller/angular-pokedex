@@ -13,6 +13,10 @@
   flex-direction: $direction;
 }
 
+@mixin flex-wrap($wrap){
+  flex-wrap: ($wrap);
+}
+
 @mixin flex-justify($justify){
   justify-content: $justify;
 }

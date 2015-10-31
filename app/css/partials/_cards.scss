@@ -1,3 +1,107 @@
-md-card{
-  max-width: 150px;
+.card-wrap{
+  width: 100%;
+  height: auto;
+  display: block;
+  md-card{
+    width: 100%;
+    margin: 0;
+    @include flex-direction(column);
+    @include break-sm{
+      @include flex-direction(row);
+      @include flex-wrap(wrap);
+    }
+    img.image-responsive{
+      max-width: 250px;
+      margin: 0 auto;
+      @include break-sm{
+        width: 25%;
+        max-width: none;
+      }
+    }
+    h1.card-title{
+      text-align: center;
+      font-style: italic;
+      font-weight: 300;
+      span{
+        font-size: 50%;
+      }
+      @include break-sm{
+        margin-top: 20px;
+        width: 75%;
+      }
+    }
+    md-card-content{
+      border-top: 1px solid $border-color;
+      @include break-sm{
+        width: 100%;
+        @include flex;
+        @include flex-direction(row);
+        @include flex-justify(center);
+      }
+      .list-title{
+        margin: 10px 0;
+        border-bottom: 1px solid $border-color;
+        h3{
+          font-weight: 200;
+        }
+      }
+      // DETAIL-BLOCK
+      .detail-block{
+        @include flex;
+        @include flex-direction(column);
+        margin: 0 5px;
+        width: 100%;
+        @include break-sm{
+          &.attributes{
+            width: 60%;
+          }
+          &.abilities, &.type{
+            width: 20%;
+          }
+        }
+      }
+      // ATTRIBUTE STYLES
+      ul.pokemon-attributes{
+        width: 100%;
+        @include break-sm{
+          @include flex;
+          @include flex-direction(row);
+          @include flex-wrap(wrap);
+          @include flex-justify(center)
+        }
+        li.attribute{
+          margin: 10px 0;
+          @include break-sm{
+            width: 45%;
+            margin: 10px 5px;
+          }
+          .title{
+            font-size: 85.7%;
+          }
+          .value{
+            font-weight: 700;
+          }
+          .out-of{
+            font-size: 71.4%;
+            font-style: italic;
+          }
+        }
+      }
+      // ABILITY STYLES | TYPE STYLES
+      .pokemon-abilities, .pokemon-types{
+        .ability, .type{
+          text-transform: uppercase;
+          font-size: 85.7%;
+          font-style: italic;
+          &:last-child{
+            .divider{
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
 }
+
+

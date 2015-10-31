@@ -20,7 +20,7 @@
     <div class="container">
       <div class="row row-justify">
         <!-- LOGO -->
-        <h3 class="logo">AngularJS Pokedex</h3>
+        <h3 class="logo">Angular-Poked&eacute;x</h3>
         <!-- // logo -->
         <!-- SEARCH INPUT -->
         <form ng-submit="search()">
@@ -39,49 +39,150 @@
     </div>
   </header>
 
-
-  <div class="container">
-    <section class="module">
-      <div ng-repeat="pokemon in characters">
-        <md-grid-list md-cols-sm="1">
-          <md-content class="md-padding">
-            <md-card>
-              <!--<img class="image-responsive" ng-src="http://pokeapi.co/media/img/{{pokemon.pkdx_id}}.png"/>-->
-              <img class="image-responsive" ng-src="http://assets20.pokemon.com/assets/cms2/img/pokedex/detail/{{pokemonID}}.png"/>
-              <md-card-content>
-                <h2 class="md-title">
-                  {{pokemon.name}} <span>#{{pokemon.pkdx_id}}</span>
-                </h2>
-                <div>Attack: {{pokemon.attack}}</div>
-                <div>Defense: {{pokemon.defense}}</div>
-                <div>Experience: {{pokemon.exp}}</div>
-                <div>Height: {{pokemon.height}}</div>
-                <div>Hit Points: {{pokemon.hp}}</div>
-                <div>
-                  Abilities:
-                  <ul>
-                    <li ng-repeat="ability in pokemon.abilities">
-                      {{ability.name}}
-                    </li>
-                  </ul>
+  <section class="module">
+    <div class="container">
+      <div class="card-wrap" ng-repeat="pokemon in characters">
+          <md-card>
+            <!--<img class="image-responsive" ng-src="http://pokeapi.co/media/img/{{pokemon.pkdx_id}}.png"/>-->
+            <img class="image-responsive" ng-src="http://assets20.pokemon.com/assets/cms2/img/pokedex/detail/{{pokemonID}}.png"/>
+            <h1 class="card-title hidden-xs">
+              {{pokemon.name}} <span>#{{pokemon.pkdx_id}}</span>
+            </h1>
+            <div class="pokemon-description">
+              <p></p>
+            </div>
+            <!-- CARD CONTENT -->
+            <md-card-content>
+              <h1 class="card-title visible-xs">
+                {{pokemon.name}} <span>#{{pokemon.pkdx_id}}</span>
+              </h1>
+              <!-- DETAIL-BLOCK : ATTRIBUTES -->
+              <div class="detail-block attributes">
+                <!-- ATTRIBUTES -->
+                <div class="list-title">
+                  <h3>Attributes</h3>
                 </div>
-                <h1></h1>
-                <span>
-                  Type:
-                  <ul>
-                    <li ng-repeat="type in pokemon.types">
-                      {{type.name}}
-                    </li>
-                  </ul>
+                <ul class="pokemon-attributes">
+                  <!-- ATTRIBUTE : HIT POINTS -->
+                  <li class="attribute">
+                    <span class="title">Hit Points:</span>
+                    <span class="value">{{pokemon.hp}}</span>
+                    <span class="out-of">/ 255</span>
+                    <isteven-omni-bar current-value="pokemonHP" max-value="255"></isteven-omni-bar>
+                  </li>
+                  <!-- // attribute -->
+                  <!-- ATTRIBUTE : ATTACK -->
+                  <li class="attribute">
+                    <span class="title">Attack:</span>
+                    <span class="value">{{pokemon.attack}}</span>
+                    <span class="out-of">/ 180</span>
+                    <isteven-omni-bar current-value="pokemonAttack" max-value="180"></isteven-omni-bar>
+                  </li>
+                  <!-- // attribute -->
+                  <!-- ATTRIBUTE : DEFENSE -->
+                  <li class="attribute">
+                    <span class="title">Defense:</span>
+                    <span class="value">{{pokemon.defense}}</span>
+                    <span class="out-of">/ 230</span>
+                    <isteven-omni-bar current-value="pokemonDefense" max-value="230"></isteven-omni-bar>
+                  </li>
+                  <!-- // attribute -->
+                  <!-- ATTRIBUTE : SPEED -->
+                  <li class="attribute">
+                    <span class="title">Speed:</span>
+                    <span class="value">{{pokemon.speed}}</span>
+                    <span class="out-of">/ 180</span>
+                    <isteven-omni-bar current-value="pokemonSpeed" max-value="180"></isteven-omni-bar>
+                  </li>
+                  <!-- // attribute -->
+                  <!-- ATTRIBUTE : SPEED ATTACK -->
+                  <li class="attribute">
+                    <span class="title">Speed Attack:</span>
+                    <span class="value">{{pokemon.sp_atk}}</span>
+                    <span class="out-of">/ 180</span>
+                    <isteven-omni-bar current-value="pokemonSpeedAttack" max-value="180"></isteven-omni-bar>
+                  </li>
+                  <!-- // attribute -->
+                  <!-- ATTRIBUTE : SPEED DEFENSE -->
+                  <li class="attribute">
+                    <span class="title">Speed Defense:</span>
+                    <span class="value">{{pokemon.sp_def}}</span>
+                    <span class="out-of">/ 230</span>
+                    <isteven-omni-bar current-value="pokemonSpeedDefense" max-value="230"></isteven-omni-bar>
+                  </li>
+                  <!-- // attribute -->
+                  <!-- ATTRIBUTE : HEIGHT -->
+                  <li class="attribute">
+                    <span class="title">Height:</span>
+                    <span class="value">{{pokemon.height}}</span>
+                    <span class="out-of">/ 145</span>
+                    <isteven-omni-bar current-value="pokemonHeight" max-value="145"></isteven-omni-bar>
+                  </li>
+                  <!-- // attribute -->
+                  <!-- ATTRIBUTE : WEIGHT -->
+                  <li class="attribute">
+                    <span class="title">Weight:</span>
+                    <span class="value">{{pokemon.weight}}</span>
+                    <span class="out-of">/ 9500</span>
+                    <isteven-omni-bar current-value="pokemonWeight" max-value="9500"></isteven-omni-bar>
+                  </li>
+                  <!-- // attribute -->
+                  <!-- ATTRIBUTE : EXPERIENCE -->
+                  <li class="attribute">
+                    <span class="title">Experience:</span>
+                    <span class="value">{{pokemon.exp}}</span>
+                    <span class="out-of">/ 608</span>
+                    <isteven-omni-bar current-value="pokemonExperience" max-value="608"></isteven-omni-bar>
+                  </li>
+                  <!-- // attribute -->
+                </ul>
+                <!-- // attributes -->
+              </div>
+              <!-- // detail-block -->
+
+              <!-- DETAIL-BLOCK : ABILITIES -->
+              <div class="detail-block abilities">
+                <!-- ABILITIES -->
+                <div class="list-title">
+                  <h3>Abilities</h3>
+                </div>
+                <div class="pokemon-abilities">
+                <span class="ability" ng-repeat="ability in pokemon.abilities">
+                  {{ability.name}}
+                  <span class="divider"> / </span>
                 </span>
-              </md-card-content>
-            </md-card>
-          </md-content>
-        </md-grid-list>
+                </div>
+                <!-- // abilities -->
+              </div>
+              <!-- // detail-block --
+
+              <!-- DETAIL-BLOCK : TYPE -->
+              <div class="detail-block type">
+                <!-- TYPE -->
+                <div class="list-title">
+                  <h3>Type</h3>
+                </div>
+                <div class="pokemon-types">
+                <span class="type" ng-repeat="type in pokemon.types">
+                  {{type.name}}
+                  <span class="divider"> / </span>
+                </span>
+                </div>
+                <!-- // type -->
+              </div>
+              <!-- // detail-block -->
+
+
+
+            </md-card-content>
+          </md-card>
       </div>
-    </section>
-  </div>
+      <!-- // card-wrap -->
+    </div>
+    <!-- // container -->
+  </section>
 </div>
+<!-- // page-wrap -->
 
 <footer>
   <div class="container">

@@ -1,6 +1,4 @@
 .container{
-  width: 100%;
-  height: auto;
   @include flex;
   margin: auto;
   padding: 0 10px;
@@ -30,6 +28,23 @@
     }
   }
 }
+
+.hidden-xs{
+  display: none;
+}
+.visible-xs{
+  display: block;
+}
+@include break-sm{
+  .hidden-xs{
+    display: block;
+  }
+  .visible-xs{
+    display: none;
+  }
+}
+
+
 
 .pull-left{
   float: left;
