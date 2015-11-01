@@ -107,6 +107,9 @@ h1, h2, h3, h4, h5, h6 {
       -webkit-box-align: center;
       align-items: center; }
 
+.noDisplay {
+  display: none !important; }
+
 .hidden-xs {
   display: none; }
 
@@ -353,5 +356,11 @@ footer {
     color: white;
     text-align: center;
     text-decoration: none; }
+
+md-dialog md-dialog-content {
+  overflow: hidden;
+  padding: 30px;
+  text-align: center;
+  line-height: 1.5; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,19 +1,26 @@
 /**
  * Created by williamfuller on 10/21/15.
  */
-app.controller('pokedexCtrl', function($scope, searchCharacter, $http){
-
+app.controller('pokedexCtrl', function($scope, searchCharacter, $mdDialog){
   // User search function
   $scope.search = function(){
+
     // get pokemon details
     var filteredSearch = $scope.searchCharacter.toLowerCase().replace(/\s+/g,'');
 
     $scope.characters = [searchCharacter.get({
         value : filteredSearch
-      }, function(){},
+      }, function(){
+        var getCard = document.getElementsByClassName("card-wrap");
+        var pokemonCard = angular.element(getCard);
+        pokemonCard.removeClass('noDisplay');
+      },
       function(response){
         if(response.status === 404){
-          alert('we are sorry but we could not find what you are looking for')
+          var getCard = document.getElementsByClassName("card-wrap");
+          var pokemonCard = angular.element(getCard);
+          pokemonCard.addClass('noDisplay');
+          searchError();
         }
       }
     )];
@@ -32,22 +39,9 @@ app.controller('pokedexCtrl', function($scope, searchCharacter, $http){
     var randomID = Math.floor((Math.random()* 718) + 1);
 
     $scope.characters = [searchCharacter.get({value : randomID}, function(){
-
-
-        $http({
-          method: 'GET',
-          url: 'http://pokeapi.co/api/v1/description/874/'
-        }).then(function successCallback(data) {
-          $scope.description = [data.data];
-          console.log($scope.description)
-          });
-
-
-
-
-
-
-
+        var getCard = document.getElementsByClassName("card-wrap");
+        var pokemonCard = angular.element(getCard);
+        pokemonCard.removeClass('noDisplay');
       },
       function(response){
         if(response.status === 404){
@@ -55,36 +49,15 @@ app.controller('pokedexCtrl', function($scope, searchCharacter, $http){
         }
       }
     )];
-
     pokemonObject = searchCharacter.get({value: randomID}, function(value, responseHeader) {
       console.log('Random Pokemon Object: ', pokemonObject);
       pokemonParser(pokemonObject);
     });
   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   // Pokemon Object Parser
   function pokemonParser() {
+
     var pokemonID           = pokemonObject.pkdx_id;
     var pokemonHP           = pokemonObject.hp;
     var pokemonAttack       = pokemonObject.attack;
@@ -119,6 +92,21 @@ app.controller('pokedexCtrl', function($scope, searchCharacter, $http){
       $scope.pokemonID = pokemonID;
       //console.log('pokemonID equals: ', pokemonID)
     }
+
   };
+
+
+  function searchError(){
+    $mdDialog.show({
+      clickOutsideToClose: true,
+      template:
+      '<md-dialog>' +
+      '<md-dialog-content>Search is not strong with this one. <br>Please try again <br>or try the Randomize Button</md-dialog-content>' +
+      '</md-dialog>',
+      scope: $scope,
+      preserveScope: true,
+      controller: 'pokedexCtrl'
+    });
+  }
 
 });

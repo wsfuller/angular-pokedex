@@ -9,12 +9,3 @@ app.factory('searchCharacter', function($resource){
     }
   });
 });
-
-app.factory('characterDescription', function($resource){
-  return $resource('http://pokeapi.co/api/v1/description/:value', {value: '@searchCharacter'},{
-    'query': {
-      method: 'GET',
-      isArray: true
-    }
-  });
-});
