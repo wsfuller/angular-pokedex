@@ -6,3 +6,4 @@
 **/*.css.map
 vendor-styles.css.map
 style.css.map
+/dist

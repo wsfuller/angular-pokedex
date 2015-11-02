@@ -1,0 +1,22 @@
+<header>
+  <div class="container">
+    <div class="row row-justify">
+      <!-- LOGO -->
+      <h3 class="logo">Angular-Poked&eacute;x</h3>
+      <!-- // logo -->
+      <!-- SEARCH INPUT -->
+      <form ng-submit="search()">
+        <md-input-container class="header-search">
+          <label>Search</label>
+          <input type="text" ng-model="$parent.searchCharacter">
+        </md-input-container>
+      </form>
+      <!-- // search -->
+      <!-- RANDOM GENERATOR BUTTON -->
+      <md-button class="md-raised md-primary md-button md-ink-ripple md-hue-2" ng-click="randomCharacter()">
+        Randomize
+      </md-button>
+      <!-- // generator -->
+    </div>
+  </div>
+</header>

@@ -5,8 +5,15 @@ app.controller('pokedexCtrl', function($scope, searchCharacter, $mdDialog){
   // User search function
   $scope.search = function(){
 
-    // get pokemon details
-    var filteredSearch = $scope.searchCharacter.toLowerCase().replace(/\s+/g,'');
+    if ($scope.searchCharacter == undefined){
+      enterText();
+      return false;
+    }
+    else{
+      // get pokemon details
+      var filteredSearch = $scope.searchCharacter.toLowerCase().replace(/\s+/g,'');
+    }
+
 
     $scope.characters = [searchCharacter.get({
         value : filteredSearch
@@ -109,4 +116,16 @@ app.controller('pokedexCtrl', function($scope, searchCharacter, $mdDialog){
     });
   }
 
+  function enterText(){
+    $mdDialog.show({
+      clickOutsideToClose: true,
+      template:
+      '<md-dialog>' +
+      '<md-dialog-content>You need to enter text! <br>Please try again <br>or try the Randomize Button</md-dialog-content>' +
+      '</md-dialog>',
+      scope: $scope,
+      preserveScope: true,
+      controller: 'pokedexCtrl'
+    });
+  }
 });

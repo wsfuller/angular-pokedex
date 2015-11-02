@@ -7,46 +7,56 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
-
-    watch:{
-      all:{
-        files:[
-          'app/*.html',
-          'app/css/**/*.scss',
-          'app/js/**/*.js',
-          'app/js/app.js'
-        ],
-        tasks: [
-          'clean',
-          'sass:app',
-          'copy',
-          'concat:scripts'
-        ]
-      },
+    clean: {
+      dev:[
+        'css',
+        'img',
+        'js/app.js',
+        'js/app.min.js',
+        'build/**/*.html'
+      ],
+      build: [
+        'build'
+      ],
+      dist:[
+        'dist'
+      ]
+    },
+    concat: {
       options: {
-        livereload: true
-      }
-    },
-
-    sass: {
-      build: {
-        options: {
-          style: 'expanded'
-        },
-        files:{
-          'app/css/vendor-styles.css' : 'app/css/vendor-styles.scss',
-          'app/css/style.css': 'app/css/style.scss'
-        }
+        separator: ';'
       },
-      app:{
-        files:{
-          'app/css/style.css': 'app/css/style.scss'
+      vendor:{
+        src: [
+          'vendor/angular/angular.min.js',
+          'vendor/angular-material/angular-material.min.js',
+          'vendor/angular-animate/angular-animate.min.js',
+          'vendor/angular-aria/angular-aria.min.js',
+          'vendor/angular-resource/angular-resource.min.js',
+          'vendor/angular-ui-router/release/angular-ui-router.min.js',
+          'vendor/isteven-angular-omni-bar/isteven-omni-bar.js'
+        ],
+        dest: 'build/js/vendor.js'
+      },
+      app: {
+        src: [
+          'app/js/**/*.js'
+        ],
+        dest: 'build/js/app.js'
+      }
+    },
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          hostname: '*',
+          base: 'build',
+          livereload: 35729
         }
       }
     },
-
     copy: {
-      main: {
+      build: {
         files: [
           {
             expand: true,
@@ -70,62 +80,128 @@ module.exports = function(grunt) {
             filter: 'isFile'
           }
         ]
+      },
+      dist:{
+        files:[
+          {
+            expand: true,
+            flatten: true,
+            src: ['app/*.html'],
+            dest: 'dist',
+            filter: 'isFile'
+          },
+          {
+            expand: true,
+            flatten: true,
+            src: ['app/css/{style,vendor-styles}.css'],
+            dest: 'dist/css',
+            filter: 'isFile'
+          },
+          {
+            expand: true,
+            flatten: true,
+            src: ['build/js/vendor.js','build/js/app.min.js', 'build/js/app.js'],
+            dest: 'dist/js',
+            filter: 'isFile'
+          }
+        ]
+
+
       }
     },
-
-    concat: {
-      options: {
-        separator: ';',
-      },
-      scripts: {
-        src: [
-          'vendor/angular/angular.js',
-          'vendor/angular-material/angular-material.js',
-          'vendor/angular-animate/angular-animate.js',
-          'vendor/angular-aria/angular-aria.js',
-          'vendor/angular-resource/angular-resource.js',
-          'vendor/isteven-angular-omni-bar/isteven-omni-bar.js',
-          'app/js/**/*.js'
-        ],
-        dest: 'build/js/app.js',
-      },
+    imagemin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'app/img',
+          src: ['**/*.{png,jpg,gif}'],
+          dest: 'dist/img'
+        }]
+      }
     },
-
-    clean: {
-      build: [
-        'build'
-      ]
-    },
-
-
-    connect: {
-      server: {
+    sass: {
+      build: {
         options: {
-          port: 8000,
-          hostname: '*',
-          //open: true,
-          base: 'build',
-          livereload: 35729
+          style: 'expanded'
+        },
+        files:{
+          'app/css/vendor-styles.css' : 'app/css/vendor-styles.scss',
+          'app/css/style.css': 'app/css/style.scss'
+        }
+      },
+      app:{
+        files:{
+          'app/css/style.css': 'app/css/style.scss'
+        }
+      },
+      dist:{
+        options: {
+          style: 'compressed'
+        },
+        files:{
+          'app/css/vendor-styles.css' : 'app/css/vendor-styles.scss',
+          'app/css/style.css': 'app/css/style.scss'
         }
       }
+    },
+
+    uglify: {
+      app: {
+        options: {
+          mangle: false
+        },
+        files: {
+          'build/js/app.min.js': ['build/js/app.js']
+        }
+      }
+    },
+
+    watch:{
+      all:{
+        files:[
+          'app/*.html',
+          'app/css/**/*.scss',
+          'app/js/**/*.js',
+          'app/js/app.js'
+        ],
+        tasks: [
+          'clean:dev',
+          'sass:app',
+          'copy:build',
+          'concat:app',
+          'uglify'
+        ]
+      },
+      options: {
+        livereload: true
+      }
     }
+
   });
 
 
 
   grunt.registerTask('cleanse', ['clean']);
-  //grunt.registerTask('concatScripts', ['concat:scripts']);
-
-  grunt.registerTask('sassy', ['sass:build:app']);
-
 
   grunt.registerTask('default', [
     'clean',
     'sass:build',
-    'copy',
-    'concat:scripts',
+    'copy:build',
+    'concat',
+    'uglify',
     'connect',
     'watch:all'
+  ]);
+
+  grunt.registerTask('dist', [
+    'clean',
+    'sass:dist',
+    'concat',
+    'uglify',
+    'copy',
+    'imagemin:dist'
+
+
   ]);
 
 

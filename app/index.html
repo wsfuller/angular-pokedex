@@ -16,34 +16,14 @@
 
 
 <div class="page-wrap">
-  <header>
-    <div class="container">
-      <div class="row row-justify">
-        <!-- LOGO -->
-        <h3 class="logo">Angular-Poked&eacute;x</h3>
-        <!-- // logo -->
-        <!-- SEARCH INPUT -->
-        <form ng-submit="search()">
-          <md-input-container class="header-search">
-            <label>Search</label>
-            <input type="text" ng-model="searchCharacter">
-          </md-input-container>
-        </form>
-        <!-- // search -->
-        <!-- RANDOM GENERATOR BUTTON -->
-        <md-button class="md-raised md-primary md-button md-ink-ripple md-hue-2" ng-click="randomCharacter()">
-          Randomize
-        </md-button>
-        <!-- // generator -->
-      </div>
-    </div>
-  </header>
+  <!-- HEADER -->
+  <div ng-include src="'header.html'"></div>
+
+  <ui-view></ui-view>
 
   <section class="module">
     <div class="container">
-
       <div class="card-wrap noDisplay" ng-repeat="pokemon in characters">
-
           <md-card>
             <!--<img class="image-responsive" ng-src="http://pokeapi.co/media/img/{{pokemon.pkdx_id}}.png"/>-->
             <img class="image-responsive" ng-src="http://assets20.pokemon.com/assets/cms2/img/pokedex/detail/{{pokemonID}}.png"/>
@@ -176,7 +156,6 @@
             </md-card-content>
           </md-card>
       </div>
-
       <!-- // card-wrap -->
     </div>
     <!-- // container -->
@@ -184,24 +163,14 @@
 </div>
 <!-- // page-wrap -->
 
-<footer>
-  <div class="container">
-    <div class="row row-center row-middle">
-      <!-- POWERED BY -->
-      <div class="powered-by">
-        <p>Powered By:</p>
-        <a class="api-logo" href="http://pokeapi.co/" target="_blank">
-          <img src="img/pokeapi-logo.png"/>
-        </a>
-      </div>
-      <!-- // powered by -->
-    </div>
-  </div>
-</footer>
+
+<!-- FOOTER -->
+<div ng-include src="'footer.html'"></div>
 
 
 
 
-<script src="js/app.js"></script>
+<script src="js/vendor.js"></script>
+<script src="js/app.min.js"></script>
 </body>
 </html>

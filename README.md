@@ -7,13 +7,20 @@ I wanted to create a nice looking simple project using AngularJS and Angular Mat
 
 Hope you enjoy using Angular-Pokedex, please feel free to leave comments or suggestions on improvements.  
 
+### Demo
+
+[Angular-Pokédex](http://williamsfuller.com/angular-pokedex)
+
 ### Installation
 
 `$ npm install && bower install`
 
 
-### Build
-`$grunt`
+### Project Building
+
+ * Clean Project: `$ grunt cleanse`
+ * Develop: `$ grunt`
+ * Production: `$ grunt dist`
 
 
 ### Technology
