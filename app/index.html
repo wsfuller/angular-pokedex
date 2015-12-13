@@ -27,12 +27,16 @@
           <md-card>
             <!--<img class="image-responsive" ng-src="http://pokeapi.co/media/img/{{pokemon.pkdx_id}}.png"/>-->
             <img class="image-responsive" ng-src="http://assets20.pokemon.com/assets/cms2/img/pokedex/detail/{{pokemonID}}.png"/>
-            <h1 class="card-title hidden-xs">
-              {{pokemon.name}} <span>#{{pokemon.pkdx_id}}</span>
-            </h1>
-            <div class="pokemon-description">
-              <p></p>
+            <div class="card-text">
+              <h1 class="card-title hidden-xs">
+                {{pokemon.name}} <span>#{{pokemon.pkdx_id}}</span>
+              </h1>
+              <div ng-controller="descriptionCtrl" class="card-description">
+                <p>{{description}}</p>
+              </div>
             </div>
+
+
             <!-- CARD CONTENT -->
             <md-card-content>
               <h1 class="card-title visible-xs">
