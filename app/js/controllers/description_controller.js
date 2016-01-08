@@ -21,7 +21,7 @@ app.controller('descriptionCtrl', function($scope, $http, $timeout){
       $scope.description = results.data.description;
       console.log($scope.description);
     });
-  }, 500);
+  }, 1000);
 
 
 });
