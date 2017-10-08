@@ -1,39 +1,20 @@
 {
-  "name": "angular-pokedex",
-  "authors": [
-    "William S Fuller <wfuller87@gmail.com>"
-  ],
-  "description": "Pokedex built on AngularJS using the PokeAPI",
-  "main": "",
-  "moduleType": [
-    "amd",
-    "es6",
-    "globals",
-    "node",
-    "yui"
-  ],
-  "keywords": [
-    "api",
-    "pokedex",
-    "angularjs",
-    "javascript"
-  ],
-  "license": "MIT",
-  "homepage": "",
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "angular": "~1.4.7",
-    "reset-css": "~2.0.2011012602",
-    "angular-material": "~0.11.4",
-    "angular-ui-router": "~0.2.15",
-    "angular-resource": "~1.4.7",
-    "isteven-angular-omni-bar": "https://github.com/isteven/angular-omni-bar.git#~1.0.1"
-  }
+	"name": "angular-pokedex",
+	"authors": ["William S Fuller <wfuller87@gmail.com>"],
+	"description": "Pokedex built on AngularJS using the PokeAPI",
+	"main": "",
+	"moduleType": ["amd", "es6", "globals", "node", "yui"],
+	"keywords": ["api", "pokedex", "angularjs", "javascript"],
+	"license": "MIT",
+	"homepage": "",
+	"private": true,
+	"ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
+	"dependencies": {
+		"angular": "1.4.7",
+		"reset-css": "2.0.2011012602",
+		"angular-material": "0.11.4",
+		"angular-ui-router": "0.2.15",
+		"angular-resource": "1.4.7",
+		"isteven-angular-omni-bar": "https://github.com/isteven/angular-omni-bar.git#~1.0.1"
+	}
 }
